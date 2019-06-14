@@ -37,8 +37,8 @@ app.get('/profile/:id', (req, res) =>{profile.showProfile(req, res, db)});
 
 app.put('/image', (req, res)=>{ entries_counter.handleEntries(req, res, db)});
 
-app.listen(3001, ()=>{
-	console.log('app is running on port 3001');
+app.listen(process.env.PORT || 3000, ()=>{
+	console.log(`app is running on port ${process.env.PORT }`);
 })
 
 /*
