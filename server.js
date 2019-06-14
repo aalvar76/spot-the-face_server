@@ -12,10 +12,8 @@ const entries_counter = require('./controllers/entries_counter');
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'postgres',
-    password : 'aPbiciforme9898!!',
-    database : 'spot_the_face'
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
   }
 });
 
