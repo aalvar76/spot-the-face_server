@@ -17,12 +17,14 @@ const handleRegister = (req, res, db, bcrypt) =>{
 				email: loginEmail[0], 
 				joined: new Date()})
 			.then(user =>{
-				res.json(payload: name,
+				res.json({
+				    payload: name,
 				    //data: speechResponse,
 				    fulfillmentText: name,
 				    speech: name,
 				    displayText: name,
-				    source: "webhook-echo-sample");
+				    source: "webhook-echo-sample"
+				  });
 			})
 		})
 		.then(trx.commit)
