@@ -20,7 +20,7 @@ const db = knex({
 //express to build a server
 const app = express();
 
-app.use(cors());
+app.use(cors()); //allow external calls
 
 app.use(bodyParserr.json());
 app.get('/', (req, res)=>{

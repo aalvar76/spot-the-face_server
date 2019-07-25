@@ -1,7 +1,7 @@
 const handleRegister = (req, res, db, bcrypt) =>{
-	const {name, email, password} = req.body;
+	const {name, email} = req.body.queryResult.parameters;
 	const saltRounds = 10;
-	let hash = bcrypt.hashSync(password, saltRounds);
+	let hash = bcrypt.hashSync('kkkk', saltRounds);
 	db.transaction(trx => {
 		trx.insert({
 			hash:hash,
@@ -17,7 +17,12 @@ const handleRegister = (req, res, db, bcrypt) =>{
 				email: loginEmail[0], 
 				joined: new Date()})
 			.then(user =>{
-				res.json(user[0]);
+				res.json(payload: name,
+				    //data: speechResponse,
+				    fulfillmentText: name,
+				    speech: name,
+				    displayText: name,
+				    source: "webhook-echo-sample");
 			})
 		})
 		.then(trx.commit)
