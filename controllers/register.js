@@ -1,6 +1,5 @@
 const handleRegister = (req, res, db, bcrypt) =>{
-	const {name, email, password} = req.body.queryResults;
-
+	const {name, email, password} = req.body;
 	const saltRounds = 10;
 	let hash = bcrypt.hashSync(password, saltRounds);
 	db.transaction(trx => {
@@ -18,7 +17,7 @@ const handleRegister = (req, res, db, bcrypt) =>{
 				email: loginEmail[0], 
 				joined: new Date()})
 			.then(user =>{
-				res.json(user[0].name);
+				res.json(user[0]);
 			})
 		})
 		.then(trx.commit)
